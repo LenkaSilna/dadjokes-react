@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { render } from 'react-dom';
 import './style.css';
 
 const App = () => {
+  const [likeCount, setLikeCount] = useState(0);
+  const [dislikeCount, setDislikeCount] = useState(0);
   return (
     <>
       <div className="container">
@@ -23,13 +25,25 @@ const App = () => {
             </p>
           </div>
           <div className="joke__likes">
-            <button id="btn-up" class="btn-like btn-like--up"></button>
-            <span id="likes-up" class="likes-count likes-count--up">
-              0
+            <button
+              id="btn-up"
+              className="btn-like btn-like--up"
+              onClick={() => {
+                setLikeCount(likeCount + 1);
+              }}
+            ></button>
+            <span id="likes-up" className="likes-count likes-count--up">
+              {likeCount}
             </span>
-            <button id="btn-down" className="btn-like btn-like--down"></button>
+            <button
+              id="btn-down"
+              className="btn-like btn-like--down"
+              onClick={() => {
+                setDislikeCount(dislikeCount + 1);
+              }}
+            ></button>
             <span id="likes-down" className="likes-count likes-count--down">
-              0
+              {dislikeCount}
             </span>
           </div>
         </div>
