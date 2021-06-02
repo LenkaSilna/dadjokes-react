@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import './style.css';
 
 const Joke = ({ userAvatar, userName, text, likes, dislikes }) => {
-  const [likeCount, setLikeCount] = useState(0);
-  const [dislikeCount, setDislikeCount] = useState(0);
+  const [likeCount, setLikeCount] = useState(likes);
+  const [dislikeCount, setDislikeCount] = useState(dislikes);
   return (
     <>
       {' '}
